@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="jquery-3.2.1.min.js"></script>
+		<script src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
+		
+		<style type="text/css">
+			.menu-item { // For menu item, such as File
+				font-family: Tahoma;
+				color: black;
+				margin-top: 20px;
+			}
+			
+			.menu { // For menu bar
+				background: red;
+				height: 30px;
+			}
+				
+			.file-menu-item { // For drop down menu background
+				margin-top: 1ex;
+				color: black;
+			}
+			
+			.drop-down-bg {
+				z-index: 5;
+				position: relative; // Need to be relative so z-index will work
+				height: 150px;
+				width: 100px;
+				background: orange;
+			}
+		</style>
+		
+		<script>
+			$(function() {
+				// Make form1 draggable
+				$(".forms").draggable().css("border-radius", "8px").css("box-shadow", "5px 5px 5px gray");
+				
+				$("#file-drop-down").hide();
+				
+				// Show and hide the drop down menu
+				$("#file-menu-item").hover(
+				function() {
+					$("#file-drop-down").show();
+				},
+					
+				function() {
+					//$("#file-drop-down").hide();
+				});
+				
+				$("#file-drop-down").hover(
+				function() {
+					$(this).show();
+				},
+					
+				function() {
+					$(this).hide();
+				});
+			});	
+			
+			
+		</script>
+	</head>
+
+	<body>
+		<form id="form1" class="forms" style="z-index: 5; margin-left: 100px; margin-top: 100px; background: gray; width: 40%; height: 40%;">
+			<div class="menu">
+					<ul style="inline">
+						<a style="text-decoration: none; margin-top: 10px;" id="file-menu-item" class="menu-item" href="#">File</a>
+						<div id="file-drop-down" class="drop-down-bg">
+							<ul type="none">
+								<li>New
+								<li>Open...
+								<hr>
+								<li>Exit
+							</ul>
+						</div>
+					</ul>
+			</div>
+			<div style="height: 400px; width: 400px; z-index: 5">
+				<input type="text">
+				<input type="submit">
+			</div>
+		</form>
+	</body>
+</html>
