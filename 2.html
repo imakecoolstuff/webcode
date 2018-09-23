@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <p>Enter a character to see it's ASCII equivalent</P>
+    <input type="text" id="txtBx1">
+    <div id="output">
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script>
+      $("#txtBx1").keyup(function (e) {
+        $("#output").append("<p>" + String.fromCharCode(e.which) + " === " + e.keyCode + "</P>")
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <!-- Dynamically-changning word view -->
+    <label for="my-word">Enter some text:</label><input id="my-word" type="text">
+    <!-- Container for the dictionary api -->
+    <div id="definition-container">
+    </div>
+    <!-- Load required libraries -->
+    <script src="js/jquery.min.js"></script>
+    <script>
+      var $myWord = $("#my-word");
+
+      $myWord.keyup(function (e) {
+        (function getWord($word) {
+            return function () {
+              var $definitionContainer = $("#definition-container");
+              var isBackspacePressed = e.keyCode === 8 ? true : false; // keyCode 8 is backspace
+
+              if (isBackspacePressed) {
+                $definitionContainer.children().last().remove(); // Remove last element
+              } else {
+                $definitionContainer.append("<p>" + $word.val() + "</p>");
+              }
+            }
+          })($myWord)();
+        });
+    </script>
+  </body>
+</html>

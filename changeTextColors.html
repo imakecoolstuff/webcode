@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <article>
+      <header>Disneyland</header>
+      <p id="coloredtext">When I was a kid, I used to go to disneyland every day!</p>
+    </article>
+    <input id="changetext" type="color">
+    <script>
+    var input = document.getElementById("changetext");
+var text = document.getElementById("coloredtext");
+
+input.addEventListener('change', function () {
+  text.style.color = this.value;
+});
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .block {
+        width: 200px;
+        height: 200px;
+        background: blue;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="block">
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script>
+    setInterval(function () {
+      $(".block").animate({"marginLeft": "+=100"});
+    }, .001);
+    </script>
+  </body>
+</html>

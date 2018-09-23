@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/knockout-3.4.2.js"></script>
+  </head>
+  <body>
+    <!-- Iterate through people array -->
+      <div data-bind="foreach: people">
+        <div>
+          <input type="text" data-bind="value: $data">
+        </div>
+      </div>
+
+    <script type="text/javascript">
+      function MyViewModel() {
+        var self = this; // Capture this
+
+        // Array of people's names
+        self.people = ko.observableArray([
+            "John Thomas", "Fred Hendricks", "Sammie Smith"
+        ]);
+     }
+
+      ko.applyBindings(new MyViewModel());
+    </script>
+  </body>
+</html>
